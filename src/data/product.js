@@ -52,12 +52,12 @@ export const initialProducts = [
   },
   // Realistic Image URLs for Laptop (Chromebook)
   {
-  id: 609,
+  id: 611,
   name: "HP Pavilion Plus, Intel Core i5-1335U-13th Gen Laptop, (16GB LPDDR5x,512GB SSD),IPS",
   price: 69990,
   image: "https://m.media-amazon.com/images/I/61s8J1vGi0L._SL1500_.jpg",
   description:
-    "The ultimate smartphone experience with a 108MP camera and all-day battery life.",
+    "Slim and powerful productivity laptop with a stunning 14-inch OLED display and all-day battery.",
   category: "Laptop",
 },
   {
@@ -116,10 +116,9 @@ export const initialProducts = [
   },
   {
     id: 605,
-    name: "Apple ipad Go Lite",
+    name: "Apple iPad Go Lite",
     price: 35990,
-    image:
-      "https://m.media-amazon.com/images/I/61kV643xjIL._SL1500_.jpghttps://m.media-amazon.com/images/I/81LskAU5h1L._SX679_.jpg",
+    image: "https://m.media-amazon.com/images/I/81LskAU5h1L._SX679_.jpg",
     description:
       "Lightweight and fast, perfect for students and cloud-based work.",
     category: "Tablet",

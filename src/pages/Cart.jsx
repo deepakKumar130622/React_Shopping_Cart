@@ -4,10 +4,47 @@ import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
 
-import { ShoppingCart, ChevronLeft, Zap } from "lucide-react";
+import { ShoppingCart, ChevronLeft, Zap, ShoppingBag } from "lucide-react";
 
 const Cart = () => {
   const { cart, cartTotal, cartCount } = useCart();
+
+  if (cart.length === 0) {
+    return (
+      <div className="container mx-auto px-4 md:px-8 pt-8">
+        <div className="flex items-center mb-10">
+          <Link
+            to={"/"}
+            className="flex items-center text-gray-400 hover:text-orange-400 transition duration-150 font-semibold text-lg"
+          >
+            <ChevronLeft className="w-6 h-6 mr-1" />
+            <span>Back to Store</span>
+          </Link>
+        </div>
+        <div className="flex flex-col items-center justify-center py-24 text-center">
+          <div className="relative mb-8">
+            <div className="p-8 bg-gray-900 rounded-full border border-gray-800 shadow-2xl">
+              <ShoppingBag className="w-20 h-20 text-gray-700" />
+            </div>
+            <div className="absolute -top-1 -right-1 w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-gray-950">
+              0
+            </div>
+          </div>
+          <h2 className="text-3xl font-extrabold text-white mb-3">Your Cart is Empty</h2>
+          <p className="text-gray-500 text-base max-w-sm mb-10">
+            Looks like you haven't added anything yet. Explore our premium tech collection and find something you'll love.
+          </p>
+          <Link
+            to={"/"}
+            className="px-10 py-4 bg-orange-600 text-white font-extrabold text-lg rounded-full shadow-lg shadow-orange-800/50 hover:bg-orange-700 transition duration-300 flex items-center space-x-2 hover:ring-4 hover:ring-pink-600/50 uppercase tracking-wider"
+          >
+            <ShoppingCart className="w-5 h-5" />
+            <span>Start Shopping</span>
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -33,16 +70,14 @@ const Cart = () => {
             ))}
           </div>
 
-          <div className="lg:col-span-1 p-8 bg-gray-900 rounded-2xl shadow-2xl border-1-4 sticky top-20 h-fit border border-gray-800">
-            <h3 className="text-3xl font-bold text-white mb-5 border-b border-y-gray-700 pb-3 flex items-center space-x-2">
-              <div className="flex justify-between">
-                <span className="w-6 h-6 text-orange-400">₹</span>
-                <span>Order Total</span>
-              </div>
+          <div className="lg:col-span-1 p-8 bg-gray-900 rounded-2xl shadow-2xl sticky top-20 h-fit border border-gray-800">
+            <h3 className="text-3xl font-bold text-white mb-5 border-b border-gray-700 pb-3 flex items-center space-x-2">
+              <span className="w-6 h-6 text-orange-400">₹</span>
+              <span>Order Total</span>
             </h3>
             <div className="space-y-4 text-gray-400">
               <div className="flex justify-between text-xl">
-                <span>SubTotal :</span>
+                <span>Subtotal :</span>
                 <span className="font-semibold text-white">
                   ₹{cartTotal.toFixed(2)}
                 </span>
@@ -78,3 +113,4 @@ const Cart = () => {
 };
 
 export default Cart;
+
